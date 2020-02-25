@@ -1,5 +1,6 @@
 package com.test.controller;
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import com.test.entity.Record;
@@ -15,6 +16,9 @@ import org.springframework.web.bind.annotation.*;
 
 import com.test.service.IRecordService;
 import org.springframework.web.client.HttpServerErrorException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping("/v1")
@@ -51,6 +55,20 @@ public class RecordController {
             logger.error(ex.getMessage(), ex);
             throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+
+    @RequestMapping(value = "/records", method = RequestMethod.GET, produces="application/octet-stream")
+    public void downloadFile(HttpServletResponse response,
+                             HttpServletRequest request) throws IOException
+    {
+        byte[] pdf = new byte[]{1,2,3};
+
+        response.setContentType("application/x-download");
+        response.setHeader("Content-Disposition", "attachment; filename=foo.foo");
+        response.setHeader("Pragma", "no-cache");
+        response.setHeader("Cache-Control", "no-cache");
+        response.getOutputStream().write(pdf);
     }
 
 

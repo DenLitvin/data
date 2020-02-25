@@ -9,22 +9,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 public class RestClientUtil {
-    public void getRecordByIdDemo() {
-    	HttpHeaders headers = new HttpHeaders();
-    	headers.setContentType(MediaType.APPLICATION_JSON);
-        RestTemplate restTemplate = new RestTemplate();
-	    String url = "http://localhost:8080/user/record/{id}";
-        HttpEntity<String> requestEntity = new HttpEntity<String>(headers);
-        ResponseEntity<Record> responseEntity = restTemplate.exchange(url, HttpMethod.GET, requestEntity, Record.class, 1);
-        Record record = responseEntity.getBody();
-        System.out.println("Id:"+ record.getRecordId()+", Title:"+ record.getRecordName()
-                 +", Category:"+ record.getRecordType());
-    }
+
 	public void getAllRecordsDemo() {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
         RestTemplate restTemplate = new RestTemplate();
-	    String url = "http://localhost:8080/user/records";
+	    String url = "http://localhost:8080/v1/records";
         HttpEntity<String> requestEntity = new HttpEntity<String>(headers);
         ResponseEntity<Record[]> responseEntity = restTemplate.exchange(url, HttpMethod.GET, requestEntity, Record[].class);
         Record[] records = responseEntity.getBody();

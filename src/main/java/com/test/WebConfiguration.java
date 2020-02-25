@@ -15,5 +15,6 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
                 .mediaType("xml", MediaType.APPLICATION_XML)
                 .mediaType("plain", new MediaType("text", "plain"))
                 .mediaType("csv", new MediaType("text", "csv"));
+                //.mediaType("pdf", new MediaType("application", "pdf"));
     }
 }

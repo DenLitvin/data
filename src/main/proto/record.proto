@@ -1,0 +1,14 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.test.grpc;
+
+service RecordService {
+    rpc getRecords (RecordRequest) returns (RecordResponse) {}
+}
+
+message RecordRequest {
+}
+
+message RecordResponse {
+    string record = 1;
+}
