@@ -59,20 +59,25 @@
 			<artifactId>jackson-core</artifactId>
 			<version>2.10.2</version>
 		</dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-context</artifactId>
+            <version>1.27.2</version>
+        </dependency>
 		<dependency>
 			<groupId>io.grpc</groupId>
 			<artifactId>grpc-netty</artifactId>
-			<version>1.27.1</version>
+			<version>1.24.0</version>
 		</dependency>
 		<dependency>
 			<groupId>io.grpc</groupId>
 			<artifactId>grpc-protobuf</artifactId>
-			<version>1.27.1</version>
+			<version>1.24.0</version>
 		</dependency>
 		<dependency>
 			<groupId>io.grpc</groupId>
 			<artifactId>grpc-stub</artifactId>
-			<version>1.27.1</version>
+			<version>1.24.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lognet</groupId>
@@ -88,6 +93,11 @@
 					<artifactId>spring-boot-starter</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.arrow</groupId>
+			<artifactId>arrow-flight</artifactId>
+			<version>0.15.1</version>
 		</dependency>
 	</dependencies> 
 	<build>
